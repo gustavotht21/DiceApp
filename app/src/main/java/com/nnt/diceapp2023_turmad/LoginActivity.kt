@@ -3,15 +3,11 @@ package com.nnt.diceapp2023_turmad
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.nnt.diceapp2023_turmad.appusers.User
 import com.nnt.diceapp2023_turmad.appusers.database.UsersDatabase
-import com.nnt.diceapp2023_turmad.appusers.database.insertUser
 import com.nnt.diceapp2023_turmad.appusers.database.selectUser
 import com.nnt.diceapp2023_turmad.databinding.ActivityLoginBinding
 
@@ -37,11 +33,6 @@ class LoginActivity : AppCompatActivity() {
             startActivity(goToSignUpScreenIntent)
         }
 
-        binding.signInButton.setOnClickListener {
-            val goToMainScreenIntent = Intent(this, MainActivity::class.java)
-            startActivity(goToMainScreenIntent)
-        }
-
         editTextEmail = findViewById(R.id.email_edit_text)
         editTextPassword = findViewById(R.id.password_edit_text)
         signInButton = findViewById(R.id.signInButton)
@@ -57,6 +48,9 @@ class LoginActivity : AppCompatActivity() {
         val loginUser = database.selectUser(editTextEmail.text.toString(), editTextPassword.text.toString())
 
         if (loginUser) {
+            editTextEmail.text.clear()
+            editTextPassword.text.clear()
+
             val goToMainScreenIntent = Intent(this, MainActivity::class.java)
             startActivity(goToMainScreenIntent)
         } else {

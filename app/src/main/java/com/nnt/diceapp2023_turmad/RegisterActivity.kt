@@ -3,16 +3,13 @@ package com.nnt.diceapp2023_turmad
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.nnt.diceapp2023_turmad.appusers.User
 import com.nnt.diceapp2023_turmad.appusers.database.UsersDatabase
 import com.nnt.diceapp2023_turmad.appusers.database.insertUser
 import com.nnt.diceapp2023_turmad.databinding.ActivityRegisterBinding
-import kotlin.math.log
 
 class RegisterActivity : AppCompatActivity() {
 
