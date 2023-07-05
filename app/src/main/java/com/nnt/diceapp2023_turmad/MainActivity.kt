@@ -1,5 +1,6 @@
 package com.nnt.diceapp2023_turmad
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -7,13 +8,26 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.android.material.chip.ChipGroup
+import com.nnt.diceapp2023_turmad.databinding.ActivityHomeBinding
+import com.nnt.diceapp2023_turmad.databinding.ActivityMainBinding
+import com.nnt.diceapp2023_turmad.databinding.ActivityRegisterBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.backButton.setOnClickListener {
+            val goToSignInScreenIntent = Intent(this, HomeActivity::class.java)
+            startActivity(goToSignInScreenIntent)
+        }
 
         val texto = findViewById<TextView>(R.id.textoView)
         val botao = findViewById<Button>(R.id.botao)
