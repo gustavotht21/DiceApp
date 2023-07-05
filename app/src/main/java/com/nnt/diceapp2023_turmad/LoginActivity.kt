@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
             editTextEmail.text.clear()
             editTextPassword.text.clear()
 
-            val goToMainScreenIntent = Intent(this, MainActivity::class.java)
+            val goToMainScreenIntent = Intent(this, HomeActivity::class.java)
             startActivity(goToMainScreenIntent)
         } else {
             Toast.makeText(this, "Credenciais incorretas. Verifique se os dados inseridos estão corretos", Toast.LENGTH_SHORT).show()
