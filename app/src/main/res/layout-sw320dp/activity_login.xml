@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textSize="16sp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:text="Não possuo cadastro ainda"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
