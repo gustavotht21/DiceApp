@@ -18,18 +18,15 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.bottomNavigationView.setOnClickListener {
-
-            when(it.id) {
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when (it.itemId) {
                 R.id.home -> {replaceFragment(Home())}
-                R.id.profile -> replaceFragment(Profile())
-                R.id.settings -> replaceFragment(Settings())
-                else -> {}
+                R.id.profile -> {replaceFragment(Profile())}
+                R.id.settings -> {replaceFragment(Settings())}
             }
+
+            true
         }
-
-
-
     }
 
     private fun replaceFragment(fragment: Fragment) {
