@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.nnt.diceapp2023_turmad.databinding.ActivityHomeBinding
+import com.nnt.diceapp2023_turmad.databinding.ActivityLoginBinding
 
 class HomeActivity : AppCompatActivity() {
 
@@ -13,14 +14,17 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        replaceFragment(Home())
+        replaceFragment(Profile())
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.home -> {replaceFragment(Home())}
+                R.id.home -> {
+                    val goToSignUpScreenIntent = Intent(this, MainActivity::class.java)
+                    startActivity(goToSignUpScreenIntent)
+                }
                 R.id.profile -> {replaceFragment(Profile())}
                 R.id.settings -> {replaceFragment(Settings())}
             }
